@@ -1,7 +1,10 @@
 .form-group {
+    margin-bottom: 16px;
 }
 
 .form-label {
+    margin-bottom: 8px;
+    display: inline-block;
 }
 
 .form-input {
