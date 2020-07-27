@@ -3,6 +3,9 @@ import React from 'react'
 import TextInput from '../TextInput'
 import Fieldset from '../Fieldset'
 import Button from '../Button'
+import Select from '../Select'
+
+import { DEPARTMENTS, STATES } from './data'
 
 export default class Form extends React.PureComponent {
     render() {
@@ -16,9 +19,11 @@ export default class Form extends React.PureComponent {
                 />
                 <TextInput
                     label='Date of Birth'
+                    type='date'
                 />
                 <TextInput
                     label='Start Date'
+                    type='date'
                 />
                 <Fieldset legend='Address'>
                     <TextInput
@@ -27,13 +32,22 @@ export default class Form extends React.PureComponent {
                     <TextInput
                         label='City'
                     />
+                    <Select
+                        label='State'
+                        htmlFor='stateButton'
+                        htmlName='state'
+                        options={STATES}
+                    />
                     <TextInput
                         label='Zip Code'
                         type='number'
                     />
                 </Fieldset>
-                <TextInput
-                    label='Department'
+                <Select
+                    label='Departement'
+                    htmlFor='departementButton'
+                    htmlName='departement'
+                    options={DEPARTMENTS}
                 />
                 <Button label='Save' />
             </form>
