@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './style.css'
 
 const Select = ({ label, htmlFor, htmlName, options }) => (
@@ -8,17 +9,18 @@ const Select = ({ label, htmlFor, htmlName, options }) => (
             <option value="">--Please choose an option--</option>
             {
                 options.map(option => (
-                    <option value={option.abbreviation}>{option.name}</option>
+                    <option key={option.name} value={option.abbreviation}>{option.name}</option>
                 ))
             }
-            <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="hamster">Hamster</option>
-            <option value="parrot">Parrot</option>
-            <option value="spider">Spider</option>
-            <option value="goldfish">Goldfish</option>
         </select>
     </div>
 )
+
+Select.propTypes = {
+    label: PropTypes.string,
+    htmlFor: PropTypes.string.isRequired,
+    htmlName: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(PropTypes.object).isRequired
+}
 
 export default Select
